@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+  <head>
+    <title>
+      THERE ARE TOO MANY OF THEM
+    </title>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+     <script>
+      var currentSlide = 0;
+      var goPrev = function(){
+        $("img").fadeOut();
+        currentSlide = (currentSlide - 1) % 20;
+        if(currentSlide < 0){
+          currentSlide = 20 + currentSlide;
+        }
+        $("img:nth-of-type(" + (currentSlide+1) + ")").stop().fadeIn(1000);
+        return;
+      }
+
+      var goNext = function(){
+        $("img").fadeOut();
+        currentSlide = (currentSlide + 1) % 20;
+        $("img:nth-of-type(" + (currentSlide+1) + ")").stop().fadeIn(1000);
+        return;
+      }
+
+      // Replace your play() function with this code. 
+      var audio
+      var intervalId;
+      function play() {
+        audio = new Audio('music/RAW (with Rhodes!).m4a');
+        audio.play();
+        intervalId = window.setInterval(function(){
+          goNext();
+        }, 1000);
+      }
+
+      function stop(){
+        clearInterval(intervalId);
+        audio.pause();
+      }
+
+     </script>
+     <style>
+      img{
+        position: absolute;
+      }
+      #prev{
+        position: fixed;
+        bottom: 10px;
+        left: 10px;
+      }
+      #next{
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+      }
+      .button {
+        background-color: #9fd5ff;
+        color: #0022ff;
+        padding: 10px;
+        border-radius: 10px;
+        -moz-border-radius: 10px;
+        -webkit-border-radius: 10px;
+        margin: 10px;
+        width: 90px;
+        height: 45px;
+    }
+     </style>
+  </head>
+
+  <p>Song: "Raw (Instrumental)" by Purple Sun</p>
+  <button onclick="play()" class="button">Play music</button>
+  <button onclick="stop()" class="button">Stop music</button>
+
+  <h1>Oh no ... oh dear god ... this is getting out of hand ...</h1>
+
+  <body onload='$("img").fadeOut(0);$("img:nth-of-type(1)").fadeIn()'>
+  <img src='images/one-dolphin-photorealistic-digital-art-null.png'>
+  <img src='images/two-dolphins-photorealistic-digital-art-null.png'>
+  <img src='images/three-dolphins-photorealistic-digital-art-null.png'>
+  <img src='images/four-dolphins-photorealistic-digital-art-null.png'>
+  <img src='images/five-dolphins-photorealistic-digital-art-null.png'>
+  <img src='images/six-dolphins-photorealistic-digital-art-null.png'>
+  <img src='images/seven-dolphins-photorealistic-digital-art-null.png'>
+  <img src='images/thirteen-dolphins-photorealistic-digital-art-null.png'>
+  <img src='images/twenty-dolphins-photorealistic-digital-art-null.png'>
+  <img src='images/eight-dolphins-photorealistic-digital-art-null.png'>
+  <img src='images/nine-dolphins-photorealistic-digital-art-null.png'>
+  <img src='images/ten-dolphins-photorealistic-digital-art-null.png'>
+  <img src='images/eleven-dolphins-photorealistic-digital-art-null.png'>
+  <img src='images/twelve-dolphins-photorealistic-digital-art-null.png'>
+  <img src='images/fourteen-dolphins-photorealistic-digital-art-null.png'>
+  <img src='images/fifteen-dolphins-photorealistic-digital-art-null.png'>
+  <img src='images/seventeen-dolphins-photorealistic-digital-art-null.png'>
+  <img src='images/eighteen-dolphins-photorealistic-digital-art-null.png'>
+  <img src='images/sixteen-dolphins-photorealistic-digital-art-null.png'>
+  <img src='images/nineteen-dolphins-photorealistic-digital-art-null.png'>
+  <button onclick='goPrev()' id='prev'> Prev </button>
+  <button onclick='goNext()' id='next'> Next </button>
+
+
+  </body>
+</html>
